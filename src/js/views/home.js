@@ -4,7 +4,7 @@ import "../../styles/home.css";
 
 export const Home = () => (
 	//FORMULARIO DE REGISTRO
-	<div className="container">
+	<div className="container mt-5">
 		<div className="row justify-content-center">
 			<div className="col-12 col-sm-9 col-md-7 col-lg-6 col-lx-5 login_container">
 				<h2 className="text-center">
