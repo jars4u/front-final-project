@@ -4,12 +4,41 @@ import "../../styles/home.css";
 
 export const Home = () => (
 	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
+		<h4>REGISTRATE</h4>
+		<input
+			ClassName="form"
+			type="text"
+			name="name"
+			id="names"
+			placeholder="Ingresa tu Nombre"
+		></input>
+		<input
+			ClassName="form"
+			type="text"
+			name="apellidos"
+			id="apellidos"
+			placeholder="Ingrese su Apellido"
+		></input>
+		<input
+			ClassName="form"
+			type="email"
+			name="correo"
+			id="correo"
+			placeholder="Ingrese su Correo"
+		></input>
+		<input
+			ClassName="form"
+			type="password"
+			name="correo"
+			id="correo"
+			placeholder="Ingrese su Contraseña"
+		></input>
 		<p>
-			<img src={rigoImage} />
+			Estoy de acuerdo con <a href="#">Terminos y Condiciones</a>
 		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+		<input ClassName="button" type="submit" value="Registrar"></input>
+		<p>
+			<a href="#">¿Ya tienes Cuenta?</a>
+		</p>
 	</div>
 );
