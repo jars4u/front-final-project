@@ -14,11 +14,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			]
 		},
+
+
+		//PARA REGISTRAR UN USUARIO
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			registerUser: async (user) => {
+				console.log(user);
 			},
+
+
+
+
+
+
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))

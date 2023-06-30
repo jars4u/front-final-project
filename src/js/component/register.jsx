@@ -9,21 +9,33 @@ const initialState = {
     email: "",
     restaurantName: "",
     restaurantRif: "",
+    // avatar: "",
 };
 
 
-//↓↓↓ REVISAR PORQUE NO EXPORTA SIN ESTE EXPORT
-export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
-    const { actions } = useContext; { Context };
+export const Register = () => {
+    const { actions } = useContext(Context);
     const [user, setUser] = useState(initialState);
 
 
     //EVENTOS
-    const handleRegister = () => {
+    const handleRegister = (e) => {
         //AQUI VA LA FUNCION
-        //actions.register({});
+        // e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append("name", user.name);
+        formData.append("password", user.password);
+        formData.append("email", user.email);
+        formData.append("restaurantName", user.restaurantName);
+        formData.append("restaurantRif", user.restaurantRif);
+        // formData.append("avatar", user.avatar);
+        const response = actions.registerUser(formData);
+
         console.log("Registrando al usuario...")
     };
+
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
@@ -51,7 +63,11 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     placeholder="Ingresa un nombre de usuario"
                                     onChange={handleChange}
                                     value={user.name}
+                                    required
                                 ></input>
+                                <div className="alert alert-danger text-center p-0" role="alert">
+                                    El nombre de usuario no es válido!
+                                </div>
                             </div>
 
                             <div className="form-group mt-3">
@@ -64,7 +80,11 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     placeholder="Ingresa un password"
                                     onChange={handleChange}
                                     value={user.password}
+                                    required
                                 ></input>
+                                <div className="alert alert-danger text-center p-0" role="alert">
+                                    El password no es válido!
+                                </div>
                             </div>
 
                             <div className="form-group mt-3">
@@ -77,11 +97,15 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     placeholder="Ingresa una dirección de correo"
                                     onChange={handleChange}
                                     value={user.email}
+                                    required
                                 ></input>
+                                <div className="alert alert-danger text-center p-0" role="alert">
+                                    e-mail inválido!
+                                </div>
                             </div>
 
                             <div className="form-group mt-3">
-                                <label htmlFor="restaurantName">Nombre de tu Restaurant:</label>
+                                <label htmlFor="restaurantName">Nombre del comercio:</label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -90,11 +114,15 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     placeholder="Ingresa un nombre"
                                     onChange={handleChange}
                                     value={user.restaurantName}
+                                    required
                                 ></input>
+                                <div className="alert alert-danger text-center p-0" role="alert">
+                                    Nombre inválido!
+                                </div>
                             </div>
-                            
+
                             <div className="form-group mt-3">
-                                <label htmlFor="restaurantRif">Rif de tu Restaurant:</label>
+                                <label htmlFor="restaurantRif">Rif del comercio:</label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -103,10 +131,14 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     placeholder="Ingresa el Rif de tu comercio"
                                     onChange={handleChange}
                                     value={user.restaurantRif}
+                                    required
                                 ></input>
+                                <div className="alert alert-danger text-center p-0" role="alert">
+                                    Rif inválido!
+                                </div>
                             </div>
-                            
-                            <div className="form-group mt-3">
+
+                            {/* <div className="form-group mt-3">
                                 <label htmlFor="avatar">Avatar:</label>
                                 <input
                                     type="file"
@@ -115,27 +147,18 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
                                     name="avatar"
                                     placeholder="Escoge una imagen para tu avatar"
                                     onChange={handleChange}
-                                    value={user.avatar}
+                                    required
                                 ></input>
-                            </div>
+                            </div> */}
 
                             <div>
                                 <button
                                     type="button"
                                     className="btn btn-warning text-white  w-100 mt-3"
-                                    onClick={handleRegister()}
-                                >
+                                    onClick={() => handleRegister()}>
                                     Registrarse
                                 </button>
                             </div>
-
-                            {/* SELECTOR DE ROLES
-					<select className="form-select mt-3" aria-label="Default select example">
-						<option selected>Escoge tu tipo de cuenta:</option>
-						<option value="1">Usuario</option>
-						<option value="2">Restaurant</option>
-					</select> */}
-
                         </form>
                     </div>
                 </div >
@@ -143,4 +166,4 @@ export const Register = () => { //↓ NO ACEPTA SIN ESTE SEMICOLON
         </>);
 }
 
-export default Register;
+
