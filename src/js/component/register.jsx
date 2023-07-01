@@ -91,12 +91,7 @@ export const Register = () => {
                                     value={user.password}
                                     required
                                 ></input>
-                                <div
-                                    className="alert alert-danger text-center p-0"
-                                    role="alert"
-                                >
-                                    El password no es válido!
-                                </div>
+
                             </div>
 
 
