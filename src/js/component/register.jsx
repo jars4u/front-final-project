@@ -46,11 +46,11 @@ export const Register = () => {
                 <div className="row justify-content-center">
                     <div className="col-12 col-sm-9 col-md-7 col-lg-6 col-lx-5 login_container">
                         <h2 className="text-center">
-                            <strong>Registrate</strong>
+                            <strong>Create Account</strong>
                         </h2>
 
 
-                        <form>
+                        <form className="needs-validation" noValidate>
                             <div className="form-group mt-4">
                                 <label htmlFor="name">Nombre de usuario:</label>
                                 <input
@@ -63,12 +63,18 @@ export const Register = () => {
                                     value={user.name}
                                     required
                                 ></input>
-                                <div
+                                <div className="valid-feedback">
+                                    It's all good!
+                                </div>
+                                <div className="invalid-feedback">
+                                    Write a name...
+                                </div>
+                                {/* <div
                                     className="alert alert-danger text-center p-0"
                                     role="alert"
                                 >
                                     El nombre de usuario no es válido!
-                                </div>
+                                </div> */}
                             </div>
 
 
